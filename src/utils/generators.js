@@ -86,6 +86,20 @@ function fracDivQ(typeKey) {
   return { id: id(), typeKey, display: `${a}/${b} ÷ ${c}/${d} = ?`, answer, answerType: 'fraction' };
 }
 
+function seriesQ(minStep, maxStep, typeKey) {
+  const d = randInt(minStep, maxStep);
+  const maxA = 100 - 2 * d;          // guarantees at least 3 terms
+  const a = randInt(1, maxA);
+  const maxN = Math.min(20, Math.floor((100 - a) / d) + 1);
+  const n = randInt(3, maxN);
+  const last = a + (n - 1) * d;
+  const sum = (n * (a + last)) / 2;  // always integer: see arithmetic series proof
+  const display = n <= 4
+    ? Array.from({ length: n }, (_, i) => a + i * d).join(' + ') + ' = ?'
+    : `${a} + ${a + d} + ${a + 2 * d} + ... + ${last} = ?`;
+  return { id: id(), typeKey, display, answer: String(sum), answerType: 'number' };
+}
+
 export function generateQuestion(typeKey) {
   switch (typeKey) {
     case 'ADD_1x1': return arith(randInt(1,9),   randInt(1,9),   '+', typeKey);
@@ -145,6 +159,11 @@ export function generateQuestion(typeKey) {
     case 'FRAC_DIFF': return fracDiffQ(typeKey);
     case 'FRAC_MUL':  return fracMulQ(typeKey);
     case 'FRAC_DIV':  return fracDivQ(typeKey);
+
+    case 'SERIES_1':     return seriesQ(1,  1,  typeKey);
+    case 'SERIES_2_5':   return seriesQ(2,  5,  typeKey);
+    case 'SERIES_6_10':  return seriesQ(6,  10, typeKey);
+    case 'SERIES_11_15': return seriesQ(11, 15, typeKey);
 
     default: throw new Error(`Unknown typeKey: ${typeKey}`);
   }

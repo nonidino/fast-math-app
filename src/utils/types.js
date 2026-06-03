@@ -97,6 +97,15 @@ export const SECTIONS = [
     ],
   },
   {
+    title: 'Arithmetic Series',
+    types: [
+      { key: 'SERIES_1',     label: 'Step 1' },
+      { key: 'SERIES_2_5',   label: 'Steps 2 – 5' },
+      { key: 'SERIES_6_10',  label: 'Steps 6 – 10' },
+      { key: 'SERIES_11_15', label: 'Steps 11 – 15' },
+    ],
+  },
+  {
     title: 'Fraction Math',
     types: [
       { key: 'FRAC_SAME', label: 'Same denom +/−' },
