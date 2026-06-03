@@ -105,6 +105,14 @@ export function generateQuestion(typeKey) {
     case 'MUL_2x2': return arith(randInt(10,99), randInt(10,99), '*', typeKey);
     case 'MUL_2x3': return arith(randInt(10,99), randInt(100,999), '*', typeKey);
 
+    case 'MUL9_1d':  return arith(randInt(1,9),     9, '*', typeKey);
+    case 'MUL9_2d':  return arith(randInt(10,99),   9, '*', typeKey);
+    case 'MUL9_3d':  return arith(randInt(100,999), 9, '*', typeKey);
+
+    case 'MUL11_1d':  return arith(randInt(1,9),     11, '*', typeKey);
+    case 'MUL11_2d':  return arith(randInt(10,99),   11, '*', typeKey);
+    case 'MUL11_3d':  return arith(randInt(100,999), 11, '*', typeKey);
+
     case 'SQ_1_10':  return squareQ(1,  10,  typeKey);
     case 'SQ_10_20': return squareQ(10, 20,  typeKey);
     case 'SQ_20_30': return squareQ(20, 30,  typeKey);

@@ -29,6 +29,22 @@ export const SECTIONS = [
     ],
   },
   {
+    title: '× 9',
+    types: [
+      { key: 'MUL9_1d', label: '1-digit × 9' },
+      { key: 'MUL9_2d', label: '2-digit × 9' },
+      { key: 'MUL9_3d', label: '3-digit × 9' },
+    ],
+  },
+  {
+    title: '× 11',
+    types: [
+      { key: 'MUL11_1d', label: '1-digit × 11' },
+      { key: 'MUL11_2d', label: '2-digit × 11' },
+      { key: 'MUL11_3d', label: '3-digit × 11' },
+    ],
+  },
+  {
     title: 'Squares',
     types: [
       { key: 'SQ_1_10',  label: '1 – 10' },
